@@ -1,0 +1,47 @@
+// Book my show planning
+
+-> We need a reusable carousel
+
+-> Hero Carousel
+
+
+-> Common Carousel
+
+
+-> Caste and crew small carousel
+
+
+
+//Pages:
+
+
+-> Home page
+
+
+-> Movie Page
+
+-> Categories page  (The best of entartainment thing UI -> see website home page)
+
+-> Authentication page
+
+-> Razorpay payment gateway
+
+
+
+// Plan -> How are we building it !!?
+
+-> 1) Layouts  (that remains same across all the pages here that is navbar and footer)
+
+
+-> 2) Routes
+
+
+-> 3) Pages
+
+
+
+
+-> 4) Components 
+
+
+
