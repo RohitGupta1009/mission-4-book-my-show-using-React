@@ -53,7 +53,7 @@ const NavLg=()=>
               <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">Sign in</button>
 
               <div className="h-8 w-8 text-white">
-              <BiMenu className="w-full h-full"/>
+              <BiMenu className="w-full h-full cursor-pointer"/>
               </div>
        </div>
 
