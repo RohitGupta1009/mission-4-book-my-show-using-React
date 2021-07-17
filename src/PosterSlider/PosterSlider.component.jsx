@@ -10,13 +10,14 @@ import PosterCarouselSettings from "../config/PosterCarousel.config";
 
 
 const PosterSlider= (props) => {
+  const sliderConfig =props.config ? props.config : PosterCarouselSettings
     return (
         <>
-        <div className="flex flex-col jutify-start px-3 py-3">
+        <div className="flex flex-col jutify-start  py-3">
           <h3 className={` text-2xl font-bold ${props.isDark ? "text-white" :"text-gray-700"}`}>{props.title}</h3>
           <p className={` text-sm ${props.isDark ? "text-white" :"text-gray-700"}`}> {props.subtitle}</p>
         </div>
-        <Slider{...PosterCarouselSettings}>
+        <Slider{...sliderConfig}>
         
           {props.images.map((image)=>
           (
