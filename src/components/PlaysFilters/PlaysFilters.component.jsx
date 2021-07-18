@@ -9,7 +9,7 @@ const PlaysFilter=(props)=>
          ({open})=> 
          (
              <>
-             <Disclosure.Button className="py-2 flex items-center gap-3 w-full h-16 shadow-lg  p-4 ">
+             <Disclosure.Button className="py-2 flex items-center gap-3 w-5/6 h-16 shadow-lg  p-4 ">
               {open ? <BiChevronUp/> : <BiChevronDown/>} <span className={open ? "text-red-600": "text-gray-700"}>{props.title}</span>
              </Disclosure.Button>
              <Disclosure.Panel className="text-gray-500">
