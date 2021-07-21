@@ -1,4 +1,6 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import axios from "axios";
+
 
 
 //components
@@ -6,10 +8,77 @@ import EntertainmentCardSlider from "../components/Entertainment/Entertainmentca
 import PosterSlider from "../PosterSlider/PosterSlider.component";
 
 
-//config
-import TempPosters from "../config/TempPosters.config";
+
 
 const  HomePage = () => {
+   const [popularMovies,setPopularMovies]=useState([]);
+   const [topRatedMovies,setTopRatedMovies]=useState([]);
+   const [upcomingMovies,setUpcomingMovies]=useState([]);
+   const [latestMovies,setLatestMovies]=useState([]);
+   const [famousMovies,setFamousMovies]=useState([]);
+
+   useEffect(()=>
+   {
+        const requestPopularMovies=async()=>
+        {
+          const getPopularMovies=await axios.get("/movie/popular");
+          setPopularMovies(getPopularMovies.data.results);
+        };
+        requestPopularMovies();
+   },[]);
+
+
+
+   useEffect(()=>
+   {
+        const requestTopRatedMovies=async()=>
+        {
+          const getTopRatedMovies=await axios.get("/movie/top_rated");
+          setTopRatedMovies(getTopRatedMovies.data.results);
+        };
+        requestTopRatedMovies();
+   },[]);
+
+
+
+   useEffect(()=>
+   {
+        const requestUpcomingMovies=async()=>
+        {
+          const getUpcomingMovies=await axios.get("/movie/upcoming");
+          setUpcomingMovies(getUpcomingMovies.data.results);
+        };
+        requestUpcomingMovies();
+   },[]);
+
+
+   useEffect(()=>
+   {
+        const requestLatestMovies=async()=>
+        {
+          const getLatestMovies=await axios.get("/movie/popular");
+          console.log(getLatestMovies);
+          setLatestMovies(getLatestMovies.data.results);
+        };
+        requestLatestMovies();
+   },[]);
+
+
+   useEffect(()=>
+   {
+        const requestFamousMovies=async()=>
+        {
+          const getFamousMovies=await axios.get("/movie/top_rated");
+          console.log(getFamousMovies);
+          setFamousMovies(getFamousMovies.data.results);
+        };
+        requestFamousMovies();
+   },[]);
+
+
+
+
+
     return (
         <>
           <div className="flex flex-col gap-16">
@@ -29,7 +98,7 @@ const  HomePage = () => {
             </div>
 
             <div className="md:py-12">
-              <PosterSlider images={TempPosters} title="Premieres" subtitle="Brand New Releases Every Friday" isDark={true}/>
+              <PosterSlider images={popularMovies} title="Premieres" subtitle="Brand New Releases Every Friday" isDark={true}/>
             </div>
 
           </div>
@@ -39,33 +108,20 @@ const  HomePage = () => {
 
 
       <div className="container mx-auto px-4 my-8">
-        <PosterSlider images={TempPosters} title="Online Streaming Events" isDark={false}/>
+        <PosterSlider images={topRatedMovies} title="Online Streaming Events" isDark={false}/>
       </div>
 
       <div className="container mx-auto px-4 my-8">
-        <PosterSlider images={TempPosters} title="Outdoor Events" isDark={false}/>
+        <PosterSlider images={upcomingMovies} title="Outdoor Events" isDark={false}/>
       </div>
 
       <div className="container mx-auto px-4 my-8">
-        <PosterSlider images={TempPosters} title="Laughter Therapy" isDark={false}/>
+        <PosterSlider images={latestMovies} title="Laughter Therapy" isDark={false}/>
       </div>
 
       <div className="container mx-auto px-4 my-8">
-        <PosterSlider images={TempPosters} title="Popular Events" isDark={false}/>
+        <PosterSlider images={famousMovies} title="Popular Events" isDark={false}/>
       </div>
-
-      <div className="container mx-auto px-4 my-8">
-        <PosterSlider images={TempPosters} title="The Latest Plays" isDark={false}/>
-      </div>
-
-      <div className="container mx-auto px-4 my-8">
-        <PosterSlider images={TempPosters} title="Top Games & Sport Events" isDark={false}/>
-      </div>
-
-      <div className="container mx-auto px-4 my-8">
-        <PosterSlider images={TempPosters} title="Explore Fun Activities" isDark={false}/>
-      </div>
-
 
 
 
